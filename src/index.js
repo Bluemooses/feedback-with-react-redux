@@ -12,22 +12,25 @@ let initFeedBack = {
     feeling: ' ',
     understanding: ' ',
     support: ' ',
-    comments: ' '
+    comments: ' ',
+    question: ' '
 }
 
 //Reducer adds or detracts from reduxState based on actions or inaction.
 const feedBack = (state = initFeedBack, action) => {
+       console.log(state);
     switch(action.type) {
         case 'NEXT_BUTTON':
             return{
-                ...state,
-                [action.name]: action.payload
-            }
+            ...state,
+            [action.name]: action.payload
+            }           
         case 'CLEAR_FEEDBACK':
-            return initFeedBack;
+            return state=[];
         default:
             return state;
     }
+ 
 }
 
 const storeInstance = createStore(

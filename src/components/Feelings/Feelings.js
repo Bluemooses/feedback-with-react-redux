@@ -6,8 +6,19 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 
 class Feelings extends Component{
 
-  
+    state = {
+        question: 'feelings'
+    }
 
+    componentDidMount(){
+        console.log(this.props.reduxState)
+        console.log(this.props);
+        this.props.dispatch({
+            type: 'NEXT_BUTTON',
+            name: 'feeling',
+            payload: this.state
+        })
+    }
 
     render(){
         return(
@@ -19,4 +30,8 @@ class Feelings extends Component{
     }
 }
 
-export default connect()(Feelings);
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+export default connect(putReduxStateOnProps)(Feelings);

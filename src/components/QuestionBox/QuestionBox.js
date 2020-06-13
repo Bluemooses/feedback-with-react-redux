@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import axios from 'axios';
 
 class QuestionBox extends Component {
 
       state={
-        rating: 0,
-        ready: false
+        rating: ' ',
+        ready: false,
     }
 
     constructor() {
@@ -12,16 +14,33 @@ class QuestionBox extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    componentDidMount = () => {
-        // this.props.dispatch({
+    nextBtnHandle = () => {
+        // event.preventDefault();
+        console.log("Submit clicked");
 
-        // })
-    }
+        axios.post('/review', this.state)
+            .then(response => {
+                this.props.getReview();
 
-    handleChange(event){
+                this.setState({
+                    rating: ' ',
+                    ready: false
+                })
+            })
+            .catch(err => {
+                console.log("axios POST err", err);
+            })
+    
+
+        }
+          
+
+    handleChange(event, number){
+        console.log(this.props.reduxState);
         this.setState({
-            rating: event.target.value,
-            ready: true
+            ...this.state,
+            [number]: event.target.value,
+            ready: true      
         });
         console.log("rating:", event.target.value)
     }
@@ -32,20 +51,25 @@ class QuestionBox extends Component {
           <section className="surveySays">
                     <form onSubmit={this.nextBtnHandle}>
                             <label>
-                                <input type="radio" value="1" checked={this.state.rating === "1"} onChange={this.handleChange} />
+                                <input type="radio" value="1" checked={this.state.rating === "1"} onChange={(event) => this.handleChange(event, 'rating')} />
                                 1
                             </label>
                             <label>
-                                <input type="radio" value="2" checked={this.state.rating === "2"} onChange={this.handleChange}/>
+                                <input type="radio" value="2" checked={this.state.rating === "2"} onChange={(event) => this.handleChange(event, 'rating')}/>
                                 2
                             </label>                        
                             <label>
-                                <input type="radio" value="3" checked={this.state.rating === "3"} onChange={this.handleChange} />
+                                <input type="radio" value="3" checked={this.state.rating === "3"} onChange={(event) => this.handleChange(event, 'rating')} />
                                 3
                             </label>                        
                             <label>
-                                <input type="radio" value="4" checked={this.state.rating === "4"} onChange={this.handleChange}/>
+                                <input type="radio" value="4" checked={this.state.rating === "4"} onChange={(event) => this.handleChange(event, 'rating')}/>
                                 4
+                            </label>
+                                                    
+                            <label>
+                                <input type="radio" value="5" checked={this.state.rating === "5"} onChange={(event) => this.handleChange(event, 'rating')}/>
+                                5
                             </label>
                             <button type="submit" className="nextBtn" disabled={!this.state.ready}>Next</button>
                     </form>                  
@@ -55,4 +79,20 @@ class QuestionBox extends Component {
   }
 }
 
-export default QuestionBox;
+const putReduxStateOnProps = (reduxState) => ({
+    reduxState
+})
+
+
+export default connect(putReduxStateOnProps)(QuestionBox);
+
+
+// switch (this.state.ready) {
+    //     case true: 
+    //          this.props.dispatch({
+    //                 type: 'NEXT_BUTTON',
+    //                 // name: this.props. ,
+    //                 payload: this.state
+    //             })                   
+    //     default:
+    //         return this.state;
