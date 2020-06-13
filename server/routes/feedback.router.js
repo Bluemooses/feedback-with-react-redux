@@ -15,4 +15,12 @@ router.get("/", (req, res) => {
     });
 });
 
+// router.post('/', (req, res) => {
+//     let newFeedBack = req.body;
+//     console.log('Feedback added', newFeedBack);
+
+//     let queryText = `INSERT INTO "feedback"`
+
+// })
+
 module.exports = router;

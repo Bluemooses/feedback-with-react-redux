@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
+import {withRouter} from 'react-router-dom';
 
 class QuestionBox extends Component {
   state = {
@@ -16,17 +17,18 @@ class QuestionBox extends Component {
   nextBtnHandle = (event, name) => {
     // event.preventDefault();
     console.log("Submit clicked", this.props);
+    this.props.history.push('/comments');
     switch (this.state.ready) {
       case true:
         this.props.dispatch({
           type: "NEXT_BUTTON",
           payload: this.state,
-          // name: this.state.name
-          // name: this.props.name
         });
       default:
         return this.state;
     }
+    
+    
   };
 
   handleChange(event, number) {
@@ -108,4 +110,4 @@ const putReduxStateOnProps = (reduxState) => ({
   reduxState,
 });
 
-export default connect(putReduxStateOnProps)(QuestionBox);
+export default withRouter(connect(putReduxStateOnProps)(QuestionBox));

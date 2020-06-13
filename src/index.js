@@ -24,16 +24,27 @@ const feedBackName = (state = [], action) => {
   console.log(state);
   switch (action.type) {
     case "ADD_FEELING":
+        let feedback = action.payload;
+         
       return action.payload;
+    case "ADD_UNDERSTANDING":
+        return action.payload;
     default:
       return state;
   }
 };
+
 const storeInstance = createStore(
   combineReducers({
     feedBack,
     feedBackName,
   }),
+
+
+
+
+
+
   applyMiddleware(logger)
 );
 

@@ -1,38 +1,35 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import axios from 'axios';
-import '../QuestionBox/QuestionBox';
 import QuestionBox from '../QuestionBox/QuestionBox';
+// import { Redirect } from 'react-router-dom';
+// import Comments from '../Comments/Comments';
+// import { Route } from 'react-router-dom';
 
 class Feelings extends Component{
 
     state = {
-    name: 'feeling'
+    question1: 'feeling'
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
         console.log(this.state);
-        this.handleFeeling();
-
-                // this.props.nextBtnHandle();
-
+        this.handleFeeling(); 
     }
 
-    handleFeeling = () => {
-    
+    handleFeeling = () => {    
         console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
             type: 'ADD_FEELING',
             // name: 'feeling',
             payload: this.state
-        })
+        })             
  }//end handleFeeling   
  
     render(){
         return(
             <div>
                 <h3 className="question">How are you feeling today?</h3>
-                <QuestionBox onSubmit={this.props.nextBtnHandle}/>
+                <QuestionBox onClick={this.props.nextBtnHandle}/>
             </div>
         )
     }
