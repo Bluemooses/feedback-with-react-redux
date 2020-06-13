@@ -14,7 +14,7 @@ class App extends Component {
             <header className="App-header">
                <Header />                                          
             </header>
-            <Feelings />    
+            <Route path="/" component={Feelings} />    
           </Router>    
         <br/>
       </div>

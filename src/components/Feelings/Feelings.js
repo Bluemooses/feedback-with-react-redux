@@ -7,15 +7,23 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 class Feelings extends Component{
 
     state = {
-        question: 'feelings'
+    name: 'feeling'
     }
 
-    componentDidMount(){
-        console.log(this.props.reduxState)
-        console.log(this.props);
+    componentDidUpdate(){
+        console.log(this.state);
+        this.handleFeeling();
+
+                // this.props.nextBtnHandle();
+
+    }
+
+    handleFeeling = () => {
+    
+        console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
-            type: 'NEXT_BUTTON',
-            name: 'feeling',
+            type: 'ADD_FEELING',
+            // name: 'feeling',
             payload: this.state
         })
     }
@@ -24,7 +32,7 @@ class Feelings extends Component{
         return(
             <div>
                 <h3 className="question">How are you feeling today?</h3>
-                <QuestionBox />
+                <QuestionBox onSubmit={this.props.nextBtnHandle}/>
             </div>
         )
     }

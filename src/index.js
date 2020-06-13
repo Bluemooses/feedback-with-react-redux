@@ -7,35 +7,33 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
-//State .0.1.2.3 start empty.
-let initFeedBack = {
-    feeling: ' ',
-    understanding: ' ',
-    support: ' ',
-    comments: ' ',
-    question: ' '
-}
 
 //Reducer adds or detracts from reduxState based on actions or inaction.
-const feedBack = (state = initFeedBack, action) => {
+const feedBack = (state = [], action) => {
        console.log(state);
     switch(action.type) {
         case 'NEXT_BUTTON':
-            return{
-            ...state,
-            [action.name]: action.payload
-            }           
+            return action.payload;
         case 'CLEAR_FEEDBACK':
             return state=[];
         default:
             return state;
     }
- 
 }
 
+const feedBackName = (state = [], action) => {
+    console.log(state);
+    switch(action.type){
+        case 'ADD_FEELING':
+            return action.payload;
+        default:
+            return state;
+    }
+}
 const storeInstance = createStore(
     combineReducers({
-    feedBack
+    feedBack,
+    feedBackName
     }),
     applyMiddleware(logger)
 );

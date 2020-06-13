@@ -7,33 +7,29 @@ class QuestionBox extends Component {
       state={
         rating: ' ',
         ready: false,
+
     }
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.handleChange = this.handleChange.bind(this);
     }
 
-    nextBtnHandle = () => {
+    nextBtnHandle = (event, name) => {
         // event.preventDefault();
-        console.log("Submit clicked");
-
-        axios.post('/review', this.state)
-            .then(response => {
-                this.props.getReview();
-
-                this.setState({
-                    rating: ' ',
-                    ready: false
-                })
-            })
-            .catch(err => {
-                console.log("axios POST err", err);
-            })
-    
-
+        console.log("Submit clicked", this.props);
+        switch (this.state.ready) {
+            case true: 
+                 this.props.dispatch({
+                        type: 'NEXT_BUTTON',
+                        payload: this.state,
+                        // name: this.state.name
+                        // name: this.props.name
+                    })                   
+            default:
+                return this.state;
         }
-          
+    }             
 
     handleChange(event, number){
         console.log(this.props.reduxState);
@@ -87,12 +83,3 @@ const putReduxStateOnProps = (reduxState) => ({
 export default connect(putReduxStateOnProps)(QuestionBox);
 
 
-// switch (this.state.ready) {
-    //     case true: 
-    //          this.props.dispatch({
-    //                 type: 'NEXT_BUTTON',
-    //                 // name: this.props. ,
-    //                 payload: this.state
-    //             })                   
-    //     default:
-    //         return this.state;
