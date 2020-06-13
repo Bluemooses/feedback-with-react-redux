@@ -12,9 +12,9 @@ class App extends Component {
       <div className="App">       
           <Router>
             <header className="App-header">
-               <Header />
-               <Feelings />                               
+               <Header />                                          
             </header>
+            <Feelings />    
           </Router>    
         <br/>
       </div>
