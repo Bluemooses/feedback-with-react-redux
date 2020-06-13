@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import Header from '../Header/Header';
+import Feelings from '../Feelings/Feelings';
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
           <Router>
             <header className="App-header">
                <Header />
-                               
+               <Feelings />                               
             </header>
           </Router>    
         <br/>
