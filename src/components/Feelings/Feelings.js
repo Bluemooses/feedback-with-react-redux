@@ -22,23 +22,23 @@ class Feelings extends Component{
                 <section className="surveySays">
                     <form>
                         <h3 className="question">How are you feeling today?</h3>
-                        <label>
-                            <input type="radio" value="1" checked={false} />
-                            1
-                        </label>
-                        <label>
-                            <input type="radio" value="2" checked={false} />
-                            2
-                        </label>                        
-                        <label>
-                            <input type="radio" value="3" checked={false} />
-                            3
-                        </label>
-                        
-                        <label>
-                            <input type="radio" value="4" checked={false} />
-                            4
-                        </label>
+                            <label>
+                                <input type="radio" value="1" checked={false} />
+                                1
+                            </label>
+                            <label>
+                                <input type="radio" value="2" checked={false} />
+                                2
+                            </label>                        
+                            <label>
+                                <input type="radio" value="3" checked={false} />
+                                3
+                            </label>                        
+                            <label>
+                                <input type="radio" value="4" checked={false} />
+                                4
+                            </label>
+                            <button className="nextBtn" disabled={!this.state.ready} onClick={this.nextBtnHandle}></button>
                     </form>
                     
                     
