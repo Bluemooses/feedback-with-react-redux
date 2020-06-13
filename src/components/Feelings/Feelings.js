@@ -26,8 +26,8 @@ class Feelings extends Component{
             // name: 'feeling',
             payload: this.state
         })
-    }
-
+ }//end handleFeeling   
+ 
     render(){
         return(
             <div>
