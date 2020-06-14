@@ -30,8 +30,6 @@ class Understanding extends Component {
             <div>
 
                 <h3 className="question">How well are you understanding the course material?</h3>
-                                   <p>{JSON.stringify(this.props.reduxState)}</p>
-
                 <QuestionBox onSubmit={this.props.nextBtnHandle}/>
             </div>
         )

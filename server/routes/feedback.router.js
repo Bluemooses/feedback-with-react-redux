@@ -2,25 +2,25 @@ const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
 
-router.get("/", (req, res) => {
-  let queryText = `SELECT * FROM "feedback" ORDER BY "id" ASC`;
+router.post('/', (req, res) => {
+    let newFeedBack = req.body;
+    console.log('Feedback added', newFeedBack);
 
-  pool
-    .query(queryText)
-    .then((res) => {
-      res.send(result.rows);
-    })
-    .catch((err) => {
-      res.sendStatus(500);
-    });
-});
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments");`;
 
-// router.post('/', (req, res) => {
-//     let newFeedBack = req.body;
-//     console.log('Feedback added', newFeedBack);
+    pool.query(queryText, [newFeedBack.feeling, newFeedBack.understanding, newFeedBack.support, newFeedBack.comments])
+      .then(res => {
+        res.sendStatus(200)
+      })
+      .catch((err) => {
+        console.log("pool DB post ERR", err)
+        res.sendStatus(500)
+      })
 
-//     let queryText = `INSERT INTO "feedback"`
-
-// })
+})
 
 module.exports = router;
+
+
+// VALUES($1, $2, $3, $4)
+// 

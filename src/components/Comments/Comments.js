@@ -13,12 +13,6 @@ class Comments extends Component{
         toReview: false
     }
 
-    //axios post request
-
-    // componentDidMount(){
-        
-    // }
-
     //AFTER ROUTE VISITED, RESET LOCAL STATE AND DISPATCH COMMENTS
     handleComment = (event) => {
        console.log('comment clicked');

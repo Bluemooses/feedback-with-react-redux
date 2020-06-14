@@ -17,25 +17,27 @@ class Review extends Component {
     feeling: this.feeling,
     understanding: this.understanding,
     support: this.support,
-    comment: this.comment
+    comments: this.comment
   }
 
 
-  componentDidMount(){
-    // console.log("review did a thing");
-    // console.log(this.props.reduxState.feedBack[0]);
-    // console.log(this.props.reduxState.userComment[0])
-    // this.reviewFeedback();
-    console.log(this.state);
+  componentDidMount(){    
+    console.log(this.state)
   }
 
+  submitFeedback = () => {
+    console.log("NEXT", this.state);
+      axios.post("/results", this.state)
+        .then(response => {
+          console.log(response);
+        }).catch(err => {
+          console.log("axios POST err", err);
+        });
+  }
   
 
-  render() {
-   
- 
-    
-
+  render() {   
+  
     return(
       <div>
         <h2>Review Your Feedback</h2>
@@ -45,7 +47,7 @@ class Review extends Component {
           <li> Support Rating: {this.state.support} </li>
           <li> Comments For Instructor: {this.state.comment} </li>
         </ul>
-        <button type="submit">Submit Feedback</button>
+        <button onClick={this.submitFeedback} type="submit">Submit Feedback</button>
       </div>
     )
 
