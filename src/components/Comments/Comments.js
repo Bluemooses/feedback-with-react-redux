@@ -8,7 +8,8 @@ class Comments extends Component{
         comment: ' ',
         toUnderstanding: false,
         toFeelings: false,
-        toSupported: false
+        toSupported: false,
+        toReview: false
     }
 
     //axios post request
@@ -36,7 +37,16 @@ class Comments extends Component{
                 toUnderstanding: false,
                 toSupported: true
             })
-            
+        if(this.props.reduxState.feedBackName.question3 === 'supported'){
+            console.log("supported click");
+            this.setState({
+                question: 'supported',
+                toFeelings: false,
+                toUnderstanding: false,
+                toSupported: false,
+                toReview: true
+            })
+        }
         }       
     }
 
@@ -45,7 +55,7 @@ class Comments extends Component{
             ...this.state,
             [text]: event.target.value
         })
-        console.log(this.state.comment);
+        // console.log(this.state.comment);
     }
        
 
@@ -55,6 +65,9 @@ class Comments extends Component{
         }
         if(this.state.toSupported === true){
             return <Redirect to='/supported' />
+        }
+        if(this.state.toReview === true){
+            return <Redirect to='/review' />
         }
       
         

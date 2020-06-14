@@ -4,9 +4,23 @@ import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 class Review extends Component {
+
+  componentDidMount(){
+    console.log("review did a thing");
+  }
+
   render() {
-    return <div></div>;
+  
+    return(
+      <div>
+        <p>Review</p>
+      </div>
+    )
+
   }
 }
+const putReduxStateOnProps = (reduxState) => ({
+  reduxState
+})
 
-export default Review;
+export default connect(putReduxStateOnProps)(Review);
