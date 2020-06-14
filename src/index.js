@@ -29,6 +29,8 @@ const feedBackName = (state = [], action) => {
       return action.payload;
     case "ADD_UNDERSTANDING":
         return action.payload;
+    case "ADD_SUPPORTED":
+        return action.payload;
     default:
       return state;
   }

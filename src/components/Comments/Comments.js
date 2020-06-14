@@ -11,14 +11,11 @@ class Comments extends Component{
         toSupported: false
     }
 
+    //axios post request
 
-
-    componentDidMount(){
-        // console.log(this.props);
-        // console.log(this.props.reduxState.feedBackName.question);
-        // console.log(this.props.reduxState.feedBackName);     
-        // console.log(this.state);
-    }
+    // componentDidMount(){
+        
+    // }
 
     handleComment = (event) => {
        console.log('comment clicked');
@@ -37,6 +34,7 @@ class Comments extends Component{
             this.setState({
                 question: 'understanding',
                 toUnderstanding: false,
+                toSupported: true
             })
             
         }       
@@ -53,8 +51,13 @@ class Comments extends Component{
 
     render(){
         if(this.state.toUnderstanding === true){
-            return <Redirect to ='/understanding' />
+            return <Redirect to ='/understanding' />            
         }
+        if(this.state.toSupported === true){
+            return <Redirect to='/supported' />
+        }
+      
+        
 
         return(
             <div>
