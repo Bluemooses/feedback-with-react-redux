@@ -25,14 +25,12 @@ class QuestionBox extends Component {
         })
         this.props.dispatch({
           type: "NEXT_BUTTON",
-          payload: this.state,
+          payload: this.state.rating,
         });       
         return this.state.ready;
       default:
         return this.state;
-    }
-    
-    
+    }   
   };
 
   handleChange(event, number) {

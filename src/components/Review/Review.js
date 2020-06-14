@@ -2,18 +2,50 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-
+   //If DB needs access to all 3 comments/update DB with comment0/1/2
+   //for the purpose of this assignment and congruity for your debugging
+   //Set comments to the first comment box.
 class Review extends Component {
+    //We have to access INDEXES to get the data we want.
+    feeling = this.props.reduxState.feedBack[0];
+    understanding = this.props.reduxState.feedBack[1];
+    support = this.props.reduxState.feedBack[2];
+    comment = this.props.reduxState.userComment[0];
 
-  componentDidMount(){
-    console.log("review did a thing");
+    //Set local state to match up with our REDUCERS 
+  state = {
+    feeling: this.feeling,
+    understanding: this.understanding,
+    support: this.support,
+    comment: this.comment
   }
 
-  render() {
+
+  componentDidMount(){
+    // console.log("review did a thing");
+    // console.log(this.props.reduxState.feedBack[0]);
+    // console.log(this.props.reduxState.userComment[0])
+    // this.reviewFeedback();
+    console.log(this.state);
+  }
+
   
+
+  render() {
+   
+ 
+    
+
     return(
       <div>
-        <p>Review</p>
+        <h2>Review Your Feedback</h2>
+        <ul>
+          <li> Feeling Rating: {this.state.feeling} </li>
+          <li> Understanding Rating: {this.state.understanding} </li>
+          <li> Support Rating: {this.state.support} </li>
+          <li> Comments For Instructor: {this.state.comment} </li>
+        </ul>
+        <button type="submit">Submit Feedback</button>
       </div>
     )
 

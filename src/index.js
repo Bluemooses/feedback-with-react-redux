@@ -20,13 +20,12 @@ const feedBack = (state = [], action) => {
       return state;
   }
 };
-//
+
 const feedBackName = (state = [], action) => {
   console.log(state);
   let question = action.type;
   switch (action.type) {
     case "ADD_FEELING":
-        // let feedback = action.payload;         
       return action.payload
     case "ADD_UNDERSTANDING":
         return state, action.payload
@@ -53,12 +52,6 @@ const storeInstance = createStore(
     feedBackName,
     userComment
   }),
-
-
-
-
-
-
   applyMiddleware(logger)
 );
 

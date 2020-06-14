@@ -86,7 +86,7 @@ class Comments extends Component{
             <div>
                 
                 <section className="commentSection">
-                   <input onChange={(event) => this.handleCommentIn(event, "comment")} placeholder="Tell us more about that?"></input>
+                   <input onChange={(event) => this.handleCommentIn(event, "comment")} placeholder="Tell us more?"></input>
                    <button onClick={this.handleComment}>Submit</button> 
                 </section>
                     
