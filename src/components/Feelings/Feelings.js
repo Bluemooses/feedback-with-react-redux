@@ -8,7 +8,7 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 class Feelings extends Component{
 
     state = {
-    question1: 'feeling'
+    question: 'feeling'
     }
 
     componentDidMount(){

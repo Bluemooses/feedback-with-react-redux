@@ -17,11 +17,10 @@ class App extends Component {
           </header>
           <Route path="/" component={Feelings} />
           <Route path="/comments" component={Comments} />
-          // {/* <Route path="/review" component={Review} */}
-          
-          // {/* <Route path="/review" component={Review} */}
-          // {/* <Route path="/comments" component={Comments} */}
-          // {/* <Route path="/comments" component={Comments} */}
+          {/* // <Route path="/review" component={Review} */}          
+          {/* <Route path="/review" component={Review} */}
+          {/* <Route path="/comments" component={Comments} */}
+          {/* <Route path="/comments" component={Comments} */}
 
 
         </Router>
