@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import '../QuestionBox/QuestionBox';
+import {withRouter} from 'react-router-dom';
+// import '../QuestionBox/QuestionBox';
 import QuestionBox from '../QuestionBox/QuestionBox';
 
 class Understanding extends Component {
@@ -21,7 +22,7 @@ class Understanding extends Component {
             type: 'ADD_UNDERSTANDING',
             payload: this.state,
         })
- }//end handleFeeling   
+ }//end handleUnderstanding   
  
     render(){
         return(
@@ -37,4 +38,4 @@ const putReduxStateOnProps = (reduxState) => ({
     reduxState
 })
 
-export default connect(putReduxStateOnProps)(Understanding);
+export default (connect(putReduxStateOnProps)(Understanding));

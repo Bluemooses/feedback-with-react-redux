@@ -10,6 +10,7 @@ import logger from "redux-logger";
 //Reducer adds or detracts from reduxState based on actions or inaction.
 const feedBack = (state = [], action) => {
   console.log(state);
+  let feedback = action.payload
   switch (action.type) {
     case "NEXT_BUTTON":
       return action.payload;
@@ -24,8 +25,7 @@ const feedBackName = (state = [], action) => {
   console.log(state);
   switch (action.type) {
     case "ADD_FEELING":
-        let feedback = action.payload;
-         
+        // let feedback = action.payload;         
       return action.payload;
     case "ADD_UNDERSTANDING":
         return action.payload;

@@ -1,29 +1,33 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import axios from "axios";
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
 
 class QuestionBox extends Component {
   state = {
     rating: " ",
     ready: false,
+    redirect: false
   };
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange
   }
 
   nextBtnHandle = (event, name) => {
-    // event.preventDefault();
+    event.preventDefault();
     console.log("Submit clicked", this.props);
-    this.props.history.push('/comments');
     switch (this.state.ready) {
       case true:
+        this.setState({
+          redirect: true
+        })
         this.props.dispatch({
           type: "NEXT_BUTTON",
           payload: this.state,
-        });
+        });       
+        return this.state.ready;
       default:
         return this.state;
     }
@@ -36,16 +40,19 @@ class QuestionBox extends Component {
     this.setState({
       ...this.state,
       [number]: event.target.value,
-      ready: true,
+      ready: true, 
     });
     console.log("rating:", event.target.value);
   }
   //Extrapolate QuestionBox Component to access this form.
   render() {
+    if(this.state.redirect === true){
+      return <Redirect to="/comments" />
+    }
     return (
       <div>
         <section className="surveySays">
-          <form onSubmit={this.nextBtnHandle}>
+          <form type="button" onSubmit={this.nextBtnHandle}>
             <label>
               <input
                 type="radio"

@@ -1,30 +1,44 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import QuestionBox from '../QuestionBox/QuestionBox';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Redirect} from 'react-router-dom';
 class Comments extends Component{
     state = {
         question: ' ',
-        comment: ' '
+        comment: ' ',
+        toUnderstanding: false,
+        toFeelings: false,
+        toSupported: false
     }
 
 
 
     componentDidMount(){
-        console.log(this.props);
-        console.log(this.props.reduxState.feedBackName.question);
-        console.log(this.props.reduxState.feedBackName);     
-        console.log(this.state);
+        // console.log(this.props);
+        // console.log(this.props.reduxState.feedBackName.question);
+        // console.log(this.props.reduxState.feedBackName);     
+        // console.log(this.state);
     }
 
-    handleComment = () => {
+    handleComment = (event) => {
        console.log('comment clicked');
+       event.preventDefault();
         if(this.props.reduxState.feedBackName.question === "feeling"){            
             console.log("feeling click")
             this.setState({
-                question: 'feeling'
+                question: 'feeling',
+                toUnderstanding: true
             })            
-            console.log(this.state);            
+            console.log(this.state);
+            // this.props.history.push('/understanding');            
+        }
+        if(this.props.reduxState.feedBackName.question2 === "understanding"){
+            console.log("understanding click");
+            this.setState({
+                question: 'understanding',
+                toUnderstanding: false,
+            })
+            
         }       
     }
 
@@ -38,6 +52,10 @@ class Comments extends Component{
        
 
     render(){
+        if(this.state.toUnderstanding === true){
+            return <Redirect to ='/understanding' />
+        }
+
         return(
             <div>
                 
