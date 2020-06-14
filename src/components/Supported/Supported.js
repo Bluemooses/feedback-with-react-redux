@@ -5,7 +5,7 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 class Supported extends Component {
 
     state = {
-    question3: 'suppoted'
+    question3: 'supported'
     }
 
     componentDidMount(){
@@ -13,7 +13,7 @@ class Supported extends Component {
         this.handleSupported();
     }
 
-    handleSupported = () => {
+    handleSupported = () => {    
         // console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
             type: 'ADD_SUPPORTED',
