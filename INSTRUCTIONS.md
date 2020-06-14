@@ -34,10 +34,14 @@ The parts:
 
 - How are you feeling today?
   ![feeling](wireframes/feeling.png)
+  x
 - How well are you understanding the content?
+x
   ![understanding](wireframes/understanding.png)
+  x
 - How well are you being supported?
   ![support](wireframes/supported.png)
+  x
 - Any comments you want to leave?
   ![comments](wireframes/comments.png)
 

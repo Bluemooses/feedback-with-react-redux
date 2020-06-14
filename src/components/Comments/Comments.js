@@ -20,6 +20,7 @@ class Comments extends Component{
 
     handleComment = (event) => {
        console.log('comment clicked');
+       console.log(this.state);
        event.preventDefault();
         if(this.props.reduxState.feedBackName.question === "feeling"){            
             console.log("feeling click")
@@ -34,10 +35,12 @@ class Comments extends Component{
             console.log("understanding click");
             this.setState({
                 question: 'understanding',
+                toFeelings: false,
                 toUnderstanding: false,
                 toSupported: true
             })
-        if(this.props.reduxState.feedBackName.question3 === 'supported'){
+        }
+        if(this.props.reduxState.feedBackName.question3 === "supported"){
             console.log("supported click");
             this.setState({
                 question: 'supported',
@@ -48,7 +51,7 @@ class Comments extends Component{
             })
         }
         }       
-    }
+    
 
     handleCommentIn = (event, text) => {
         this.setState({
