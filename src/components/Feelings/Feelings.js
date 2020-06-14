@@ -15,12 +15,11 @@ class Feelings extends Component{
         console.log(this.state);
         this.handleFeeling(); 
     }
-
+    //ON LOAD DISPATCH FEELING TO QUESTION REDUCER
     handleFeeling = () => {    
         console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
             type: 'ADD_FEELING',
-            // name: 'feeling',
             payload: this.state
         })             
  }//end handleFeeling   
@@ -29,7 +28,7 @@ class Feelings extends Component{
         return(
             <div>
                 <h3 className="question">How are you feeling today?</h3>
-                <QuestionBox onClick={this.props.nextBtnHandle}/>
+                <QuestionBox onSubmit={this.props.nextBtnHandle}/>
             </div>
         )
     }

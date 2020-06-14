@@ -9,37 +9,49 @@ import logger from "redux-logger";
 
 //Reducer adds or detracts from reduxState based on actions or inaction.
 const feedBack = (state = [], action) => {
-  console.log(state);
+  console.log(feedBackName);
   let feedback = action.payload
   switch (action.type) {
     case "NEXT_BUTTON":
-      return action.payload;
+      return [...state, action.payload];
     case "CLEAR_FEEDBACK":
       return (state = []);
     default:
       return state;
   }
 };
-
+//
 const feedBackName = (state = [], action) => {
   console.log(state);
+  let question = action.type;
   switch (action.type) {
     case "ADD_FEELING":
         // let feedback = action.payload;         
-      return action.payload;
+      return action.payload
     case "ADD_UNDERSTANDING":
-        return action.payload;
+        return state, action.payload
     case "ADD_SUPPORTED":
-        return action.payload;
+        return state, action.payload
     default:
       return state;
   }
 };
 
+const userComment = (state = [], action) => {
+  console.log(state);
+  switch(action.type) {
+    case "ADD_COMMENT":
+      return [...state, action.payload]
+    default:
+      return state;
+  }
+}
+
 const storeInstance = createStore(
   combineReducers({
     feedBack,
     feedBackName,
+    userComment
   }),
 
 

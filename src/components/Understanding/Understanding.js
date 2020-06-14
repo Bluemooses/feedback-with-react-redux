@@ -7,15 +7,16 @@ import QuestionBox from '../QuestionBox/QuestionBox';
 
 class Understanding extends Component {
 
+
     state = {
     question2: 'understanding'
     }
-
+    //Page loaded, do a thing
     componentDidMount(){
         console.log(this.state);
         this.handleUnderstanding();
     }
-
+    //On load, dispatch question3 payload to question reducer.
     handleUnderstanding = () => {    
         // console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
@@ -23,11 +24,14 @@ class Understanding extends Component {
             payload: this.state,
         })
  }//end handleUnderstanding   
- 
+
     render(){
         return(
             <div>
+
                 <h3 className="question">How well are you understanding the course material?</h3>
+                                   <p>{JSON.stringify(this.props.reduxState)}</p>
+
                 <QuestionBox onSubmit={this.props.nextBtnHandle}/>
             </div>
         )

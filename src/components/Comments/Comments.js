@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import QuestionBox from '../QuestionBox/QuestionBox';
 import {withRouter, Redirect} from 'react-router-dom';
 class Comments extends Component{
+    //USE THIS STATE TO HELP US HANDLE COMMENTS, AND WHICH PART OF THE STACK WE ARE IN.
     state = {
         question: ' ',
         comment: ' ',
@@ -18,9 +19,12 @@ class Comments extends Component{
         
     // }
 
+    //AFTER ROUTE VISITED, RESET LOCAL STATE AND DISPATCH COMMENTS
     handleComment = (event) => {
        console.log('comment clicked');
        console.log(this.state);
+
+       console.log(this.props.reduxState)
        event.preventDefault();
         if(this.props.reduxState.feedBackName.question === "feeling"){            
             console.log("feeling click")
@@ -29,13 +33,12 @@ class Comments extends Component{
                 toUnderstanding: true
             })            
             console.log(this.state);
-            // this.props.history.push('/understanding');            
+                     
         }
         if(this.props.reduxState.feedBackName.question2 === "understanding"){
             console.log("understanding click");
             this.setState({
                 question: 'understanding',
-                toFeelings: false,
                 toUnderstanding: false,
                 toSupported: true
             })
@@ -44,15 +47,19 @@ class Comments extends Component{
             console.log("supported click");
             this.setState({
                 question: 'supported',
-                toFeelings: false,
                 toUnderstanding: false,
                 toSupported: false,
                 toReview: true
             })
         }
+        this.props.dispatch({
+            type: "ADD_COMMENT",
+            payload: this.state.comment
+        })
+        console.log(this.state.comment);
         }       
     
-
+        //BASIC TEXT INPUT HANDLE
     handleCommentIn = (event, text) => {
         this.setState({
             ...this.state,
@@ -61,7 +68,7 @@ class Comments extends Component{
         // console.log(this.state.comment);
     }
        
-
+    //RENDER A DIFFERENT COMPONENT BASED ON WHICH PART OF THE CHAIN WE ARE IN
     render(){
         if(this.state.toUnderstanding === true){
             return <Redirect to ='/understanding' />            
@@ -79,7 +86,7 @@ class Comments extends Component{
             <div>
                 
                 <section className="commentSection">
-                   <input onChange={(event) => this.handleCommentIn(event, "comment")} placeholder="How are you feeling?"></input>
+                   <input onChange={(event) => this.handleCommentIn(event, "comment")} placeholder="Tell us more about that?"></input>
                    <button onClick={this.handleComment}>Submit</button> 
                 </section>
                     
