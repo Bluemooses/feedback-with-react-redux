@@ -31,6 +31,8 @@ const feedBackName = (state = [], action) => {
         return state, action.payload
     case "ADD_SUPPORTED":
         return state, action.payload
+    case "CLEAR_FEEDBACK":
+      return (state = [])
     default:
       return state;
   }
@@ -41,6 +43,8 @@ const userComment = (state = [], action) => {
   switch(action.type) {
     case "ADD_COMMENT":
       return [...state, action.payload]
+    case "CLEAR_FEEDBACK":
+      return (state = [])
     default:
       return state;
   }

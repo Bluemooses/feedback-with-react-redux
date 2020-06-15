@@ -19,6 +19,9 @@ class Complete extends Component{
         this.setState({
             complete: true
         })
+        this.props.dispatch({
+            type: "CLEAR_FEEDBACK"
+        })
     }
 
  
