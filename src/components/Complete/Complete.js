@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { withRouter, Redirect } from 'react-router-dom';
 
 class Complete extends Component{
 
 
     //YOU MADE IT THIS FAR!  NICE.
     state = {
-    complete: true
+    complete: false
     }
 
     componentDidMount(){
@@ -14,12 +15,22 @@ class Complete extends Component{
         console.log(this.props.reduxState);
     }
 
+    restart = () => {
+        this.setState({
+            complete: true
+        })
+    }
+
  
     render(){
+        if(this.state.complete === true){
+            return <Redirect to = '/feelings' />
+        }
         return(
             <div>
                 <p>Thank you for your FEEDBACK!</p>
                 < img src = "https://media.giphy.com/media/3OBg5pc9KnENjuwTDV/giphy.gif" />
+                <button onClick={this.restart}>Restart</button>
             </div>
         )
     }
@@ -30,3 +41,4 @@ const putReduxStateOnProps = (reduxState) => ({
 })
 
 export default connect(putReduxStateOnProps)(Complete);
+
