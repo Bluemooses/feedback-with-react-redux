@@ -9,6 +9,7 @@ import Understanding from "../Understanding/Understanding";
 import {withRouter, Redirect} from 'react-router-dom';
 import Supported from "../Supported/Supported";
 import Review from "../Review/Review";
+import Complete from "../Complete/Complete";
 // import Understanding from "../Understanding/Understanding";
 
 class App extends Component {
@@ -35,9 +36,8 @@ class App extends Component {
           <Route path="/understanding" component={Understanding} />          
           <Route path="/supported" component={Supported} />
           <Route path="/review" component={Review} />
-          {/* <Route path="/comments" component={Comments} */}
           <Route path="/comments" component={Comments} />
-
+          <Route path="/complete" component={Complete} />
 
         </Router>
         <br />

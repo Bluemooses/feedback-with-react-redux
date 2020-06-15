@@ -29,10 +29,11 @@ class Review extends Component {
     console.log("NEXT", this.state);
       axios.post("/results", this.state)
         .then(response => {
-          console.log(response);
+          console.log(response);          
         }).catch(err => {
           console.log("axios POST err", err);
         });
+        this.props.history.push('/complete');
   }
   
 
