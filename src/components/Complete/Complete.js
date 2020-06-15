@@ -14,7 +14,7 @@ class Complete extends Component{
         console.log(this.state);
         console.log(this.props.reduxState);
     }
-
+    //Restart button DISPATCH to set REDUCERS empty
     restart = () => {
         this.setState({
             complete: true

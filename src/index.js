@@ -21,6 +21,7 @@ const feedBack = (state = [], action) => {
   }
 };
 
+//HOW I HANDLE MOVING THROUGH PAGES AND WHAT PART OF STACK WE'RE IN
 const feedBackName = (state = [], action) => {
   console.log(state);
   let question = action.type;
@@ -38,6 +39,7 @@ const feedBackName = (state = [], action) => {
   }
 };
 
+//THIS HANDLES THE COMMENTS
 const userComment = (state = [], action) => {
   console.log(state);
   switch(action.type) {

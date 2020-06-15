@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import {withRouter, Redirect} from 'react-router-dom';
 
+//REUSABLE COMPONENT.  THIS QUESTION FORM IS USED THROUGHOUT THE REST OF THE PAGE.
 class QuestionBox extends Component {
   state = {
     rating: " ",
@@ -15,6 +16,7 @@ class QuestionBox extends Component {
     this.handleChange = this.handleChange
   }
 
+  //DISPATCHES OUR RATING
   nextBtnHandle = (event, name) => {
     event.preventDefault();
     console.log("Submit clicked", this.props);
@@ -33,6 +35,8 @@ class QuestionBox extends Component {
     }   
   };
 
+  //INPUT CHANGE HANDLER.
+  //WHEN RADIO IS FILLED, FORM IS READY TO SUBMIT.
   handleChange(event, number) {
     console.log(this.props.reduxState);
     this.setState({
@@ -43,6 +47,7 @@ class QuestionBox extends Component {
     console.log("rating:", event.target.value);
   }
   //Extrapolate QuestionBox Component to access this form.
+  //BUTTON IS DISABLED UNTIL A VALUE IS INPUT.
   render() {
     if(this.state.redirect === true){
       return <Redirect to="/comments" />

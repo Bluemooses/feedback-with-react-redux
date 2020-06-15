@@ -33,7 +33,7 @@ class Review extends Component {
           console.log(response);          
         }).catch(err => {
           console.log("axios POST err", err);
-        });
+        });//end POST
         this.props.history.push('/complete');
   }
   

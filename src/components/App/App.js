@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    
+    //APP NEVER MOUNTS.  WE IMMEDIATELY ARE REDIRECTED TO FEELINGS.
   }
   render() {
     
