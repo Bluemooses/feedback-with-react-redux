@@ -9,7 +9,7 @@ import {Redirect} from 'react-router-dom';
 import Supported from "../Supported/Supported";
 import Review from "../Review/Review";
 import Complete from "../Complete/Complete";
-// import Understanding from "../Understanding/Understanding";
+
 
 class App extends Component {
 
@@ -26,7 +26,7 @@ class App extends Component {
     return (      
       <div className="App">
         <Router>
-          < Redirect to = '/feelings' / >
+        < Redirect to = '/feelings' / >
           <header className="App-header">
             <Header />
           </header>
@@ -37,9 +37,9 @@ class App extends Component {
           <Route path="/review" component={Review} />
           <Route path="/comments" component={Comments} />
           <Route path="/complete" component={Complete} />
-
+          
         </Router>
-        <br />
+        
       </div>
     );
   }

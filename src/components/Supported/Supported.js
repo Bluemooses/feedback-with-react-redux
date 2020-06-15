@@ -9,12 +9,10 @@ class Supported extends Component {
     }
 
     componentDidMount(){
-        console.log(this.state);
         this.handleSupported();
     }
 
     handleSupported = () => {    
-        // console.log(this.props.reduxState.feedBack)
         this.props.dispatch({
             type: 'ADD_SUPPORTED',
             payload: this.state,
