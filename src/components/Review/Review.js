@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import axios from "axios";
    //If DB needs access to all 3 comments/update DB with comment0/1/2
    //for the purpose of this assignment and congruity for your debugging
@@ -26,6 +25,7 @@ class Review extends Component {
     console.log(this.comment);
   }
 
+  //POST FEEDBACK DATA TO DB PUSH USER TO COMPLETE 
   submitFeedback = () => {
     console.log("NEXT", this.state);
       axios.post("/results", this.state)
