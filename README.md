@@ -47,13 +47,13 @@ How does someone use this application? Tell a user story here.
 
 ## Built With
 
-React
-React-Redux
-Nodemon
-Node
-Express
-Javascript
-SQL
+1. React
+2. React-Redux
+3. Nodemon
+4. Node
+5. Express
+6. Javascript
+7. SQL
 
 ## Future Outlook
 
