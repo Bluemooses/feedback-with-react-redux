@@ -20,7 +20,8 @@ class Complete extends Component{
     render(){
         return(
             <div>
-                <p>YO FROM COMPLETE!</p>
+                <p>Thank you for your FEEDBACK!</p>
+                < img src = "https://media.giphy.com/media/3OBg5pc9KnENjuwTDV/giphy.gif" />
             </div>
         )
     }

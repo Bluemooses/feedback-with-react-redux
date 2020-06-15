@@ -23,6 +23,7 @@ class Review extends Component {
 
   componentDidMount(){    
     console.log(this.state)
+    console.log(this.comment);
   }
 
   submitFeedback = () => {
@@ -46,7 +47,7 @@ class Review extends Component {
           <li> Feeling Rating: {this.state.feeling} </li>
           <li> Understanding Rating: {this.state.understanding} </li>
           <li> Support Rating: {this.state.support} </li>
-          <li> Comments For Instructor: {this.state.comment} </li>
+          <li> Comments For Instructor: {this.state.comments} </li>
         </ul>
         <button onClick={this.submitFeedback} type="submit">Submit Feedback</button>
       </div>
